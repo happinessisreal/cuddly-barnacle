@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Analyzer</title>
+    <link rel="stylesheet" href="{% static 'resume_analyzer/css/styles.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Resume Analyzer</h1>
+    </header>
+    <div class="container">
+        <form id="resume-upload-form" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="file" name="file" accept=".pdf,.doc,.docx,.txt" required>
+            <button type="submit">Upload Resume</button>
+        </form>
+        <div id="results" class="results"></div>
+    </div>
+    <script src="{% static 'resume_analyzer/js/main.js' %}"></script>
+</body>
+</html>
